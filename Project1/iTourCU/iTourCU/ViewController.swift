@@ -19,15 +19,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
-    @IBOutlet weak var horizontalAccuracyLabel: UILabel!
-    @IBOutlet weak var altitudeLabel: UILabel!
-    @IBOutlet weak var vericalAccuracyLabel: UILabel! //VERICAL NOT VERTICAL
+    
+    //@IBOutlet weak var horizontalAccuracyLabel: UILabel!
+    //@IBOutlet weak var altitudeLabel: UILabel!
+    //@IBOutlet weak var vericalAccuracyLabel: UILabel! //VERICAL NOT VERTICAL
     @IBOutlet weak var distanceTraveledLabel: UILabel!
+    
+    //information to display
+    @IBOutlet weak var buildingNamelabel: UILabel!
+    @IBOutlet weak var buildingInformationLabel: UILabel!
     
     @IBOutlet var mapView:MKMapView!
     
     //for setting locations
     //@IBOutlet var map: MKMapView!
+    
+    func updateInformation(buildingName: NSString, buildingInfo: NSString){
+        buildingNamelabel.text = buildingName as String
+        buildingInformationLabel.text = buildingInfo as String
+    }
     
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -37,12 +47,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         latitudeLabel.text = latitudeString
         let longitudeString = String(format: "%g\u{00B0}", newLocation.coordinate.longitude)
         longitudeLabel.text = longitudeString
+        /*
         let horizontalAccuracyString = String(format:"%gm", newLocation.altitude)
         horizontalAccuracyLabel.text = horizontalAccuracyString
         let altitudeString = String(format: "%gm", newLocation.verticalAccuracy)
         altitudeLabel.text = altitudeString
         let verticalAccuracyString = String(format: "%gm", newLocation.verticalAccuracy)
         vericalAccuracyLabel.text = verticalAccuracyString
+        */
+        
         
         
         //accuracy values are in meters
@@ -69,8 +82,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         previousPoint = newLocation
         
+        
         let distanceString = String(format: "%gm", totalMovementDistance)
         distanceTraveledLabel.text = distanceString
+        
     }
     
     
@@ -110,9 +125,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var ENGR = CLLocationCoordinate2D(latitude: 40.006935, longitude: -105.262595)
         var annotationENGR = MKPointAnnotation()
         annotationENGR.coordinate = ENGR
-        annotationENGR.title = "Engineering Center"
-        annotationENGR.subtitle = "Where I live"
+        annotationENGR.title = "The Engineering Center"
+        annotationENGR.subtitle = "This building comprises of computing centers, classrooms and much more"
         mapView.addAnnotation(annotationENGR)
+       updateInformation(annotationENGR.title, buildingInfo: annotationENGR.subtitle)
+        
+        
         
         var MATH = CLLocationCoordinate2D(latitude: 40.007757, longitude: -105.264646)
         var annotationMATH = MKPointAnnotation()
@@ -138,15 +156,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var FOLS = CLLocationCoordinate2D(latitude: 40.009259,  longitude: -105.266905)
         var annotationFOLS = MKPointAnnotation()
         annotationFOLS.coordinate = FOLS
-        annotationFOLS.title = "FOLS"
-        annotationFOLS.subtitle = "This is where football and stuff is played, usually inhabited by drunk students"
+        annotationFOLS.title = "Folsom Field"
+        annotationFOLS.subtitle = "CU Boulder's football stadium"
         mapView.addAnnotation(annotationFOLS)
         
         var FISK = CLLocationCoordinate2D(latitude: 40.003713, longitude: -105.263500)
         var annotationFISK = MKPointAnnotation()
         annotationFISK.coordinate = FISK
         annotationFISK.title = "Fiske Plane-arium (FISK)"
-        annotationFISK.subtitle = "This coolest fucking place on campus"
+        annotationFISK.subtitle = "This coolest place on campus, has state of the art telescopes and a one of a kind planetarium"
         mapView.addAnnotation(annotationFISK)
         
         var DUAN = CLLocationCoordinate2D(latitude: 40.008008, longitude: -105.267516)
@@ -156,20 +174,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         annotationDUAN.subtitle = "This is where math is made"
         mapView.addAnnotation(annotationDUAN)
 
+        var NOR = CLLocationCoordinate2D(latitude: 40.008847, longitude: -105.270758)
+        var annotationNOR = MKPointAnnotation()
+        annotationNOR.coordinate = NOR
+        annotationNOR.title = "Norlin Library"
+        annotationNOR.subtitle = "The main Library on campus"
+        mapView.addAnnotation(annotationNOR)
+        
+        var OLD = CLLocationCoordinate2D(latitude: 40.009234,  longitude: -105.273247)
+        var annotationOLD = MKPointAnnotation()
+        annotationOLD.coordinate = OLD
+        annotationOLD.title = "Old Main (CU Heritage Center"
+        annotationOLD.subtitle = "This was the first building on campus"
+        mapView.addAnnotation(annotationOLD)
+        
+        
+        var UMC = CLLocationCoordinate2D(latitude: 40.006775, longitude: -105.271299)
+        var annotationUMC = MKPointAnnotation()
+        annotationUMC.coordinate = UMC
+        annotationUMC.title = "University Memorial Center (UMC)"
+        annotationUMC.subtitle = "Everything from the CU Bookstore and the Alfred Packard grill to bowling and study rooms can be found here "
+        mapView.addAnnotation(annotationUMC)
+
         
         /*
-        var XXX = CLLocationCoordinate2D(latitude: 40.007757, longitude: -105.264646)
+        var UMC = CLLocationCoordinate2D(latitude: 40.007757, longitude: -105.264646)
         var annotationXXX = MKPointAnnotation()
         annotationXXX.coordinate = XXX
         annotationXXX.title = "(XXX)"
         annotationXXX.subtitle = "This is where math is made"
         mapView.addAnnotation(annotationXXX)
         */
-        
-        
-        
-        
-        
         
         
         
