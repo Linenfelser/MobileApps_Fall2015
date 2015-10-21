@@ -37,8 +37,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     func updateInformation(buildingName: NSString, buildingInfo: NSString){
         buildingNamelabel.text = buildingName as String
         buildingInfoView.text = buildingInfo as String
-    }
-    
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         let newLocation = (locations as! [CLLocation])[locations.count - 1]
@@ -126,7 +124,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var annotationENGR = MKPointAnnotation()
         annotationENGR.coordinate = ENGR
         annotationENGR.title = "The Engineering Center"
-        annotationENGR.subtitle = " The center comprises 660,000 square feet of classrooms, computing facilities, faculty offices, and research laboratories in an architecturally distinctive and thoroughly modern building. The center is home to the nation's largest geotechnical centrifuge, ion-implantation and microwave-propagation facilities, several clean rooms, low-turbulence wind tunnels, spectrometers, electron and other microscopes, and a structural analysis facility.Each department is extensively supported by networked computers, and computers are available throughout the center for student use. A wireless network provides wireless Internet access throughout the complex. "
+        annotationENGR.subtitle = " The center comprises 660,000 square feet of classrooms"
+        /*, computing facilities, faculty offices, and research laboratories in an architecturally distinctive and thoroughly modern building. The center is home to the nation's largest geotechnical centrifuge, ion-implantation and microwave-propagation facilities, several clean rooms, low-turbulence wind tunnels, spectrometers, electron and other microscopes, and a structural analysis facility.Each department is extensively supported by networked computers, and computers are available throughout the center for student use. A wireless network provides wireless Internet access throughout the complex. "*/
         mapView.addAnnotation(annotationENGR)
         updateInformation(annotationENGR.title, buildingInfo: annotationENGR.subtitle)
         
