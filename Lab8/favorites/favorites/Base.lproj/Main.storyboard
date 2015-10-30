@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="favorites" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPE-Mm-gjH">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xSF-SP-ypT"/>
+                                    <barButtonItem title="Add a Favorite" id="39x-yC-EIt">
+                                        <connections>
+                                            <segue destination="A6k-fq-3Ha" kind="presentation" identifier="favinfo" modalTransitionStyle="flipHorizontal" id="ziq-CA-79u"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Noa-lJ-SYu">
+                                <rect key="frame" x="242" y="108" width="117" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Jzl-z4-p9n"/>
+                                    <constraint firstAttribute="width" constant="117" id="e3M-lk-FUU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xr2-wX-09j">
+                                <rect key="frame" x="242" y="169" width="117" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="gOs-rE-Mlg"/>
+                                    <constraint firstAttribute="width" constant="117" id="qjI-tt-7wo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What, and Where do You like to Eat?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bW7-e9-x0G">
+                                <rect key="frame" x="160" y="36" width="281" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="qTZ-j5-jY1"/>
+                                    <constraint firstAttribute="width" constant="281" id="x1w-ee-WmV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95887075150000001" green="0.94481722530000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Noa-lJ-SYu" secondAttribute="centerX" constant="-0.5" id="0UZ-oP-Hku"/>
+                            <constraint firstItem="zPE-Mm-gjH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="OuG-75-ZUF"/>
+                            <constraint firstAttribute="centerX" secondItem="xr2-wX-09j" secondAttribute="centerX" constant="-0.5" id="Ped-Pd-DNz"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="zPE-Mm-gjH" secondAttribute="bottom" id="Ucg-e1-O0x"/>
+                            <constraint firstItem="xr2-wX-09j" firstAttribute="top" secondItem="Noa-lJ-SYu" secondAttribute="bottom" constant="40" id="coS-eV-ofE"/>
+                            <constraint firstItem="bW7-e9-x0G" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="g4k-af-b7C"/>
+                            <constraint firstItem="Noa-lJ-SYu" firstAttribute="top" secondItem="bW7-e9-x0G" secondAttribute="bottom" constant="51" id="o1y-eo-xK9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zPE-Mm-gjH" secondAttribute="trailing" constant="-16" id="wWK-7D-wDt"/>
+                            <constraint firstItem="bW7-e9-x0G" firstAttribute="centerX" secondItem="zPE-Mm-gjH" secondAttribute="centerX" id="x9S-8R-ntk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorLabel" destination="xr2-wX-09j" id="bXK-5n-VIH"/>
+                        <outlet property="bookLabel" destination="Noa-lJ-SYu" id="FrA-Lh-WrU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Scene2 View Controller-->
+        <scene sceneID="oly-nv-fjZ">
+            <objects>
+                <viewController id="A6k-fq-3Ha" customClass="scene2ViewController" customModule="favorites" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v8G-F4-MDX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Prd-la-NIt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XvV-1q-7IO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Favorites" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf4-Yo-Prt">
+                                <rect key="frame" x="251" y="38" width="99" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99" id="gHW-pS-j4c"/>
+                                    <constraint firstAttribute="height" constant="21" id="pZY-LB-HpQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9W-yW-f2X">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9OI-q9-nlK"/>
+                                    <barButtonItem title="Done" id="7FM-B6-snq">
+                                        <connections>
+                                            <segue destination="Orq-XD-JGm" kind="unwind" identifier="doneFavs" unwindAction="unwindSegue:" id="Fwx-jl-sW3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Food:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZA-sm-dYW">
+                                <rect key="frame" x="16" y="117" width="111" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJi-jE-3JV">
+                                <rect key="frame" x="179" y="108" width="368" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UgK-Qm-7e6">
+                                <rect key="frame" x="179" y="172" width="368" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Restaurant:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mw-iR-KfW">
+                                <rect key="frame" x="16" y="180" width="155" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94908476750000004" green="1" blue="0.99211240810000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="b9W-yW-f2X" secondAttribute="trailing" constant="-16" id="4ft-KK-BOX"/>
+                            <constraint firstItem="rf4-Yo-Prt" firstAttribute="centerX" secondItem="b9W-yW-f2X" secondAttribute="centerX" id="9vS-ca-Maz"/>
+                            <constraint firstItem="QJi-jE-3JV" firstAttribute="top" secondItem="rf4-Yo-Prt" secondAttribute="bottom" constant="49" id="BjM-Ny-Xsa"/>
+                            <constraint firstItem="b9W-yW-f2X" firstAttribute="leading" secondItem="XvV-1q-7IO" secondAttribute="leadingMargin" constant="-16" id="Gfz-WR-n3i"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UgK-Qm-7e6" secondAttribute="trailing" constant="37" id="JVy-pP-F0g"/>
+                            <constraint firstItem="UgK-Qm-7e6" firstAttribute="top" secondItem="QJi-jE-3JV" secondAttribute="bottom" constant="34" id="MjO-1T-S5j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QJi-jE-3JV" secondAttribute="trailing" constant="37" id="Pf2-Xv-oG3"/>
+                            <constraint firstItem="QJi-jE-3JV" firstAttribute="leading" secondItem="iZA-sm-dYW" secondAttribute="trailing" constant="52" id="PiC-Ye-kju"/>
+                            <constraint firstItem="Prd-la-NIt" firstAttribute="top" secondItem="b9W-yW-f2X" secondAttribute="bottom" id="RBI-lE-SbU"/>
+                            <constraint firstItem="iZA-sm-dYW" firstAttribute="top" secondItem="v8G-F4-MDX" secondAttribute="bottom" constant="97" id="TEO-NX-CJM"/>
+                            <constraint firstItem="8Mw-iR-KfW" firstAttribute="top" secondItem="iZA-sm-dYW" secondAttribute="bottom" constant="42" id="TMc-Ca-XRX"/>
+                            <constraint firstItem="8Mw-iR-KfW" firstAttribute="leading" secondItem="XvV-1q-7IO" secondAttribute="leadingMargin" id="a1V-pR-u6Z"/>
+                            <constraint firstItem="UgK-Qm-7e6" firstAttribute="leading" secondItem="8Mw-iR-KfW" secondAttribute="trailing" constant="8" id="dOj-ha-b2d"/>
+                            <constraint firstItem="rf4-Yo-Prt" firstAttribute="top" secondItem="v8G-F4-MDX" secondAttribute="bottom" constant="18" id="dVw-GG-xsU"/>
+                            <constraint firstItem="iZA-sm-dYW" firstAttribute="leading" secondItem="XvV-1q-7IO" secondAttribute="leadingMargin" id="ryG-TM-GRL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userAuthor" destination="UgK-Qm-7e6" id="oq8-xz-AkA"/>
+                        <outlet property="userBook" destination="QJi-jE-3JV" id="IcL-Sw-0pe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvx-ih-2c4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Orq-XD-JGm" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="337"/>
+        </scene>
+    </scenes>
+</document>
