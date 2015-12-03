@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Beer</string>
+    <string name="beer_finder">Brewery Finder</string>
+    <string name="choose_crowd">Choose Your Beer</string>
+    <string name="find_beer">Find Beer</string>
+    <string-array name="crowd">
+        <item>Local</item>
+        <item>Hidden</item>
+        <item>Good Beer and Food</item>
+        <item>Awesome Beer and Food</item>
+        <item>Big Name</item>
+        <item></item>
+    </string-array>
+    <string name="beer_image">This is beer</string>
+    <string name="suggested_brewery">This is your suggested brewery</string>
+</resources>
