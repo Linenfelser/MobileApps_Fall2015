@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">PizzaFinal</string>
+    <string name="header">Build My Pizza </string>
+    <string name="mood_button">Pizza</string>
+    <string name="feeling"></string>
+    <string-array name="Size">
+        <item>small</item>
+        <item>medium</item>
+        <item>large</item>
+    </string-array>
+    <string name="pizza_image">Pizza Image</string>
+    <string name="name_edit">Name Pizza</string>
+    <string name="toggle_on">Red</string>
+    <string name="toggle_off">White</string>
+    <string name="pizza_text">Crust</string>
+    <string name="pizza1_radio">Thick</string>
+    <string name="pizza2_radio">Thin</string>
+    <string name="pizza3_radio">Deep Dish</string>
+    <string name="pepperoni_check">pepperoni</string>
+    <string name="jalapenos_check">jalapenos</string>
+    <string name="bacon_check">bacon</string>
+    <string name="canadian_check">canadian bacon</string>
+    <string name="gluten_switch">Gluten Free?</string>
+
+</resources>
