@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList <Integer> cmpTimesArrayMinute = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
-    int timerDelay = 60000; //3600000 milliseconds = 1 hr | 60000 milliseconds = 1 minute
+    int timerDelay = 3600000; //3600000 milliseconds = 1 hr | 60000 milliseconds = 1 minute
 //    int updateMinute;
 
 
@@ -53,22 +53,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         changeRinger = (AudioManager)getSystemService(Context.AUDIO_SERVICE);
-        System.out.println("____IN_MAIN_ACTIVITY____");
-        System.out.println(date);
-        System.out.println("____dateSplit[3]____");
-        System.out.println(dateSplit[3]);
-        System.out.println("____timeSplit[0]____");
-        System.out.println(timeSplit[0]);
-        System.out.println("____timeSplit[1]____");
-        System.out.println(timeSplit[1]);
-        System.out.println("____timeSplit[2]____");
-        System.out.println(timeSplit[2]);
-        System.out.println("ARRAY: " + addArray);
-
-//        if(Integer.parseInt(timeSplit[1]) == updateMinute){
-//            addTime(null);
-//        }
-
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -87,21 +71,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void addTime(View view){
 
-
-
-            ArrayList<String> addArray = new ArrayList<>();
             ListView listViewTimes = (ListView) findViewById(R.id.listViewTimes);
-
             EditText editTextStart = (EditText) findViewById(R.id.editTextStart);
             EditText editTextEnd = (EditText) findViewById(R.id.editTextEnd);
 
             if(editTextStart.getText().toString().trim().length() != 0 && editTextEnd.getText().toString().trim().length() != 0) {
                 if (editTextStart.getText().toString().contains("-") && editTextEnd.getText().toString().contains("-")){
 
-                    addArray.add(editTextStart.getText().toString() + " to " + editTextEnd.getText().toString());
                     adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, addArray);
                     listViewTimes.setAdapter(adapter);
-                    System.out.println("ADD_ARRAY: " + addArray);
+                    addArray.add(editTextStart.getText().toString() + " to " + editTextEnd.getText().toString());
 
                     String inputTimeStringStart = editTextStart.getText().toString();
                     String[] inputTimeStart = inputTimeStringStart.split("-");
@@ -115,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
                     cmpTimesArrayMinute.add(Integer.parseInt(inputTimeEnd[1]));
 
                     updateTime();
+
+                    //clear the text fields
+                    editTextStart.setText("");
+                    editTextEnd.setText("");
                 }
                 else if (!editTextStart.getText().toString().contains("-") && !editTextEnd.getText().toString().contains("-")){
                     editTextStart.setError("Not Correct Format");
@@ -140,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 editTextEnd.setError("Ending Time Required");
             }
 
+
     }
 
 
@@ -149,9 +133,16 @@ public class MainActivity extends AppCompatActivity {
         String dateString = date.toString();
         String [] dateSplit  = dateString.split(" ");
         String [] timeSplit = dateSplit[3].split(":");
-//        ArrayList<String> addArray = new ArrayList<>();
 
-        System.out.println("IN_ONCLICK");
+        System.out.println("_____________CMPMIN__________:" + cmpTimesArrayMinute);
+
+        //set timer delay to smallest minute input
+        for(int i=0; i<cmpTimesArrayMinute.size(); i++){
+            if(cmpTimesArrayMinute.get(i) !=0 && cmpTimesArrayMinute.get(i)*60000 < timerDelay){
+                timerDelay = cmpTimesArrayMinute.get(i)*60000;
+            }
+        }
+        System.out.println("_____________TIMER__________:" + timerDelay);
 
         /*timeSplit[0] = hour
          * timeSplit[1] = minutes
@@ -160,28 +151,11 @@ public class MainActivity extends AppCompatActivity {
 
         EditText editTextStart = (EditText) findViewById(R.id.editTextStart);
         EditText editTextEnd = (EditText) findViewById(R.id.editTextEnd);
-//        ListView listViewTimes = (ListView) findViewById(R.id.listViewTimes);
-
-//        System.out.println("EDITTEXT_START:" + editTextStart.getText().toString());
-//        System.out.println("EDITTEXT_END:" + editTextEnd.getText().toString());
-
 
         if(editTextStart.getText().toString().trim().length() != 0 && editTextEnd.getText().toString().trim().length() != 0){
-//        if(inputTimeStart[0].length() != 0 && inputTimeEnd[0].length() != 0){
 
-//            System.out.println("INPUT_START[0]:" + inputTimeStart[0]);
-//            System.out.println("INPUT_START[1]:" + inputTimeStart[1]);
-//            int startTime = Integer.parseInt(editTextStart.getText().toString());
-//            int endTime = Integer.parseInt(editTextEnd.getText().toString());
             int actualTimeHour = Integer.parseInt(timeSplit[0]);
             int actualTimeMinute = Integer.parseInt(timeSplit[1]);
-
-            //error check
-//            addArray.add(editTextStart.getText().toString() + " to " + editTextEnd.getText().toString());
-//            adapter = new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, addArray);
-//            listViewTimes.setAdapter(adapter);
-
-
 
             for(int i = 0; i < cmpTimesArrayHour.size(); i++){
                 if(i %2 == 0){ //if an even number (start)
@@ -253,12 +227,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-        } else {
+        }
+        else {
             System.out.println("STARTING_TIME_REQUIRED");
 //            editTextStart.setError("Starting Time Required");
 //            editTextEnd.setError("Ending Time Required");
             System.out.println("After Error");
         }
-        System.out.println("ARRAY in onClick: " + addArray);
+//        System.out.println("ARRAY in onClick: " + addArray);
     }
 }
