@@ -4,7 +4,8 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="@drawable/back">
 
     <TextView android:text="What time would you like to be quiet?" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,18 +18,18 @@
         android:layout_height="wrap_content"
         android:id="@+id/editTextStart"
         android:hint="Start Time"
-        android:inputType="time"
+        android:inputType="phone"
         android:imeOptions="actionNext"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_alignRight="@+id/buttonAdd"
-        android:layout_alignEnd="@+id/buttonAdd" />
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editTextEnd"
         android:hint="End Time"
-        android:inputType="time"
+        android:inputType="phone"
         android:imeOptions="actionDone"
         android:layout_below="@+id/editTextStart"
         android:layout_alignLeft="@+id/editTextStart"
@@ -49,18 +50,50 @@
         android:layout_height="wrap_content"
         android:text="Add Timeframe"
         android:id="@+id/buttonAdd"
-        android:layout_below="@+id/editTextEnd"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2"
-        android:onClick="addTime"/>
+        android:onClick="addTime"
+        android:layout_below="@+id/textView5"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginTop="43dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewTimes"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/timeText"
-        android:layout_below="@+id/buttonAdd"
-        android:layout_centerHorizontal="true"
-        android:allowUndo="true" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Quiet Times:"
+        android:id="@+id/textView3"
+        android:layout_alignBottom="@+id/buttonAdd"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Time frames must be in 24 hour separated with &quot;-&quot;"
+        android:id="@+id/textView4"
+        android:background="@color/colorBack"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="For example: 1:30 pm should be written as 13-30"
+        android:id="@+id/textView5"
+        android:background="@color/colorBack2"
+        android:layout_below="@+id/textView4"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4" />
 
 </RelativeLayout>
