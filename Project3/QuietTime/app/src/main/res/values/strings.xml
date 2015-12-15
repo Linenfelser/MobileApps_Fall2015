@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">QuietTime</string>
+    <string name="on">Quiet Time On</string>
 </resources>
